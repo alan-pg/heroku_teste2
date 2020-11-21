@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="style.css">
+    <title>Snake game</title>
+</head>
+<body>    
+    <h1>Snake Game</h1>
+    <div class="game">
+        <div class="score">
+            <div>
+                <h1 id="p_name"></h1>
+            </div>
+            <div class="show_score">
+                <h1>Score</h1>
+                <h1 id="score">0</h1>
+            </div>       
+            <div class="show_level">
+                <h1>level</h1>
+                <h1 id="level">1</h1>
+            </div>
+        </div>
+        <canvas id="snake" width="512" height="512"></canvas>
+        <div class="record">
+            <h1 id="0">1º: </h1>
+            <h1 id="1">2º: </h1>
+            <h1 id="2">3º: </h1>
+            <h1 id="3">4º: </h1>
+            <h1 id="4">5º: </h1>         
+        
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close"></span>
+            <p>nome</p>           
+            <form id="form_name">
+                <input type="text" id="player_name">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+
+    <div id="myModal2" class="modal">
+        <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>NOVO RECORD</h1>
+            </div>
+        </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
