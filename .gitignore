@@ -1,2 +1,5 @@
 .env
 node_modules
+src/script.js
+src/teste.html
+teste.js
