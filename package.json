@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src",
-    "heroku-postbuild": "npm install && npm run start"
+    "start": "node src"
   },
   "keywords": [],
   "author": "",
