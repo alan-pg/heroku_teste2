@@ -1,4 +1,5 @@
-import Mongoose from 'mongoose'
+//import Mongoose from 'mongoose'
+const Mongoose = require('mongoose')
 
 const schema = new Mongoose.Schema({
     name: String,
@@ -15,6 +16,8 @@ const schema = new Mongoose.Schema({
     versionKey: false,
 })
 
-const ScoreModel = Mongoose.model('Score', schema)
+/* const ScoreModel = Mongoose.model('Score', schema)
 
-export default ScoreModel
+export default ScoreModel */
+
+module.exports = Mongoose.model('Score', schema)

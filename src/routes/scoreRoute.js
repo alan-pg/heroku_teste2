@@ -1,4 +1,5 @@
-import ScoreModel from '../model/score'
+//import ScoreModel from '../model/score'
+const ScoreModel = require('../model/score')
 
 const scoreRoute = (app) => {
     

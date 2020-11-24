@@ -1,5 +1,7 @@
-import 'dotenv/config';
-import mongoose from 'mongoose'
+/* import 'dotenv/config';
+import mongoose from 'mongoose' */
+require('dotenv').config()
+const mongoose = require('mongoose')
 
 mongoose.Promise = global.Promise
 
@@ -19,6 +21,10 @@ mongoose.connection.on('error', () => {
   throw new Error('Could not connect to MongoDB.')
 })
 
-export default {
+const connect = () => mongoose.connect(config.uri, config.options)
+
+/* export default {
   connect: () => mongoose.connect(config.uri, config.options)
-}
+} */
+
+module.exports = connect
