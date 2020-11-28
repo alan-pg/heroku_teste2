@@ -1,47 +1,47 @@
 let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
-let jogo = game();
-let telas = criaTelas();
-let score = document.getElementById("score");
-let level = document.getElementById("level")
-let total_score = 0
-let total_level = 1;
 let box = 32;
 let snake = [];
 let aux_snake = {
     x: 0,
     y: 0
 }
-
-let bg_color = "#90EE90";
-let aux_bg_color = 0;
-
-var img_start_game = new Image();
-var img_game_over = new Image();
-
-const effect_up_level = new Audio('./effects/smw_1-up.wav')
-const effect_scored = new Audio('./effects/smw_yoshi_swallow.wav');
-const effect_game_over = new Audio('./effects/smw_lost_a_life.wav');
-
 snake[0] = {
     x: 8 * box,
     y: 8 * box
 }
+let bg_color = "#90EE90";
+let aux_bg_color = 0;
 let diretion = "right";
 let food = {
     x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box
 }
 
+let jogo = game();
+let telas = criaTelas();
+
+let score = document.getElementById("score");
+let level = document.getElementById("level")
+let total_score = 0
+let total_level = 1;
+
+var img_start_game = new Image();
+var img_game_over = new Image();
+var mushroom =  new Image();
+var mushroom2 =  new Image();
+mushroom.src = './effects/Retro-Mushroom-1UP-1.png';
+mushroom2.src = './effects/Retro-Mushroom-1UP-2.png';
+
+const effect_up_level = new Audio('./effects/smw_1-up.wav')
+const effect_scored = new Audio('./effects/smw_yoshi_swallow.wav');
+const effect_game_over = new Audio('./effects/smw_lost_a_life.wav');
+
 // Get the modal
-var modal = document.getElementById("myModal");
-var modal2 = document.getElementById("myModal2");
+var modal = modal()
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var btn_close_modal_record = document.getElementById("close_modal");
+btn_close_modal_record.onclick = modal.CloseModalNewRecord
 
 var form_name = document.getElementById('form_name')
 var player_name = document.getElementById('player_name')
@@ -53,10 +53,9 @@ form_name.addEventListener('submit', function(e) {
   name = player_name.value
   if(name != ''){
     document.getElementById('p_name').innerHTML = name
-    modal.style.display = "none";
+    modal.CloseModalNamePlayer()
   }
 });
-
 
 
 function createBG() {
@@ -107,9 +106,19 @@ function criarCobrinha() {
     }
 }
 
+var cogumelo = 1
 function drawFood() {
-    context.fillStyle = "red";
-    context.fillRect(food.x, food.y, box, box);
+ /*  mushroom.onload = function () {
+  } */
+  if(cogumelo == 1){
+    context.drawImage(mushroom, food.x, food.y)
+    cogumelo = 0
+  }else{
+    context.drawImage(mushroom2, food.x, food.y)
+    cogumelo = 1
+  }
+    /* context.fillStyle = "red";
+    context.fillRect(food.x, food.y, box, box); */
 }
 
 function resetSnake() {
@@ -276,7 +285,7 @@ function fazColisao(){
     scores.sort((a,b) => b.score - a.score)
     scores.pop()
     saveScore(scores).then((resp) => resp == 'ok' ? getScore() : console.log('score não atualizado'))
-    modal2.style.display = "block"
+    modal_new_record.style.display = "block"
   }
   jogo.stop();
   telas.telaGameOver();
@@ -335,10 +344,6 @@ function getScore() {
     }).catch(err => console.log('error save score', err))
   }
 
-
-  
-
-
   function atualizaScore(pontos, nome) {
     scores.push({"name": name, "score": pontos})
     scores.sort((a,b) => b.score - a.score)
@@ -352,15 +357,32 @@ function getScore() {
   
   }
 
-// Get the modal
-var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+  function modal(){
+    var modal_name_player = document.getElementById("modal_name_player");
+    var modal_new_record = document.getElementById("modal_new_record");
+    return {
+      showModalPlayerName(){
+        modal_name_player.style.display = "block";
+      },
+      CloseModalNamePlayer(){
+        modal_name_player.style.display = "none";
+      },
+      ShowModalNewRecord(){
+        modal_new_record.style.display = "block";
+      },
+      CloseModalNewRecord(){
+        modal_new_record.style.display = "none";
+      }
+    }
+  }
+
+// Get the modal
+/* var modal = document.getElementById("myModal"); */
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-var span2 = document.getElementsByClassName("close")[1];
+/* var span = document.getElementsByClassName("close")[0]; */
+
 
 // When the user clicks on the button, open the modal
 /* btn.onclick = function() {
@@ -369,30 +391,12 @@ var span2 = document.getElementsByClassName("close")[1];
 } */
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+/* span.onclick = function() {
   modal.style.display = "none";
-}
-span2.onclick = function() {
-  modal2.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-/* window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
 } */
 
-modal.style.display = "block";
 
-/* const headers = {
-  method: 'get',
-  mode: 'cors',
-  cache: 'default'
-}
-function getCountry(country) {
-  return fetch('http://localhost:3000/score', headers)
-    .then((response) => response.json())
-}
 
-getCountry().then((res) => console.log('res teste', res)) */
+
+//modal_name_player.style.display = "block";
+modal.showModalPlayerName()

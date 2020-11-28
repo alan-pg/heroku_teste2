@@ -1,3 +1,13 @@
+@font-face {
+  font-family: supermario;
+  src: url(effects/CHLORINP.TTF);
+}
+@font-face {
+  font-family: supermario2;
+  src: url(effects/SuperMario286.TTF);
+}
+
+
 body{
     height: 95vh;
     width: 95vw; 
@@ -5,7 +15,8 @@ body{
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    color: green;
+    font-family: supermario2;
+    color: black;
 }
 
 .game{
@@ -25,9 +36,21 @@ body{
 .game .record{
     width: 20%;
     height: 100%;
-    text-align: center;
+    /* text-align: center; */
     /* background-color: aqua; */
 
+}
+
+.game .record h1{
+  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet); 
+ 
+    -webkit-background-clip: text; 
+ 
+    -webkit-text-fill-color: transparent; 
+ 
+    
+ 
+    line-height: 60px; 
 }
 
 /* The Modal (background) */
@@ -66,4 +89,9 @@ body{
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .desenha{
+    display: flex;
+    align-items: center;
   }

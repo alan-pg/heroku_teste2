@@ -1,4 +1,3 @@
-//import ScoreModel from '../model/score'
 const ScoreModel = require('../model/score')
 
 const scoreRoute = (app) => {
@@ -26,8 +25,6 @@ const scoreRoute = (app) => {
         })
         .put(async (req, res) => {
             const { id } = req.params
-            console.log('req params: s', req.params)
-            console.log('req body ', req.body)
             if (!id) {
                 return res.status(400).send({ error: 'Score ID is missing.' })
             }
@@ -44,33 +41,11 @@ const scoreRoute = (app) => {
                 }
 
                 res.status(400).send({ error: 'Could not update the score' })
-
                 
             } catch (error) {
                 res.send(error)
             }
-        })
-        .delete(async (req, res) => {
-
-            const { id } = req.params
-
-            if (!id) {
-                return res.status(400).send({ error: 'score ID is missing.' })
-            }
-
-            try {
-                const deletedScore = await ScoreModel.deleteOne({ _id: id })
-
-                if (deletedScore.deletedCount) {
-                    return res.send('OK')
-                }
-
-                res.status(400).send({ error: 'Could not delete the score' })
-
-            } catch (error) {
-                res.send(error)
-            }
-        })
+        })        
 }
 
 module.exports = scoreRoute

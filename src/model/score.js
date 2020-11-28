@@ -1,4 +1,3 @@
-//import Mongoose from 'mongoose'
 const Mongoose = require('mongoose')
 
 const schema = new Mongoose.Schema({
@@ -15,9 +14,5 @@ const schema = new Mongoose.Schema({
     },
     versionKey: false,
 })
-
-/* const ScoreModel = Mongoose.model('Score', schema)
-
-export default ScoreModel */
 
 module.exports = Mongoose.model('Score', schema)
