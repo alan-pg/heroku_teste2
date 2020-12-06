@@ -19,6 +19,11 @@ body{
     color: black;
 }
 
+canvas {
+  height: 512;
+  width: 512;
+}
+
 .game{
     width: 100%;
     height: 520px;
@@ -98,6 +103,16 @@ body{
 
 
   @media only screen and (max-width: 600px) {
+    canvas {
+      height: 400px;
+      width: 400px;
+    }
+    .game{      
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: column;
+  }
 
   .game .record{
     display: none;
