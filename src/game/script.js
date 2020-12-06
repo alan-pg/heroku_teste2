@@ -400,3 +400,78 @@ function getScore() {
 
 //modal_name_player.style.display = "block";
 modal.showModalPlayerName()
+
+
+var el = document.getElementById("snake");
+el.addEventListener("touchstart", touchstart, false);
+el.addEventListener("touchend", touchend, false);
+el.addEventListener("touchcancel", touchcancel, false);
+el.addEventListener("touchleave", touchleave, false);
+el.addEventListener("touchmove", touchmove, false);
+var array = []
+var inicio = {}
+var fim = {}
+var distancia = 0
+function touchstart(evt){
+  if(!jogo.isRunning() && name != ''){
+    jogo.start(100)
+  }
+    console.log('handleStart')
+    inicio = { 
+        pageX: Math.round(evt.changedTouches[0].pageX),
+        pageY: Math.round(evt.changedTouches[0].pageY)
+      }
+    console.log('touchmove',inicio )
+}
+
+function touchend(evt){
+  fim = { 
+      pageX: Math.round(evt.changedTouches[0].pageX),
+      pageY: Math.round(evt.changedTouches[0].pageY)
+    }
+    console.log('handleEnd')
+    console.log('touchmove', fim)
+    if(distancia > 40){
+      direcao()
+    }
+    distancia = 0
+}
+function touchcancel(){
+    console.log('touchcancel')
+}
+function touchleave(){
+    console.log('touchleave')
+}
+function touchmove(evt){
+  distancia++
+  console.log('distancia', distancia)
+}
+
+function direcao(){
+  console.log('func direcao')
+     
+    var td_x = fim.pageX - inicio.pageX;
+    var td_y = fim.pageY - inicio.pageY;
+    // O movimento principal foi vertical ou horizontal?
+    if( Math.abs( td_x ) > Math.abs( td_y ) ) {
+       // é horizontal
+       if( td_x < 0 ) {
+          console.log('esquerda')
+          if (diretion != "right") diretion = "left";
+       } else {
+        console.log('direita')
+        if (diretion != "left") diretion = "right";
+       }
+    } else {
+       // é vertical
+       if( td_y < 0 ) {
+        console.log('cima')
+        if (diretion != "down") diretion = "up";
+       } else {
+        console.log('baixo')
+        if (diretion != "up") diretion = "down";
+       }     
+
+    }
+  }
+
