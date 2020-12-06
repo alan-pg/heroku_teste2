@@ -431,7 +431,7 @@ function touchend(evt){
     }
     console.log('handleEnd')
     console.log('touchmove', fim)
-    if(distancia > 40){
+    if(distancia > 10){
       direcao()
     }
     distancia = 0
