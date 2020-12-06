@@ -431,9 +431,9 @@ function touchend(evt){
     }
     console.log('handleEnd')
     console.log('touchmove', fim)
-    if(distancia > 10){
-      direcao()
-    }
+    /* if(distancia > 10){
+    } */
+    direcao()
     distancia = 0
 }
 function touchcancel(){
