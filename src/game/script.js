@@ -416,12 +416,11 @@ function touchstart(evt){
   if(!jogo.isRunning() && name != ''){
     jogo.start(100)
   }
-    console.log('handleStart')
     inicio = { 
         pageX: Math.round(evt.changedTouches[0].pageX),
         pageY: Math.round(evt.changedTouches[0].pageY)
       }
-    console.log('touchmove',inicio )
+    console.log('handleStart',evt.changedTouches[0] )
 }
 
 function touchend(evt){
@@ -429,8 +428,7 @@ function touchend(evt){
       pageX: Math.round(evt.changedTouches[0].pageX),
       pageY: Math.round(evt.changedTouches[0].pageY)
     }
-    console.log('handleEnd')
-    console.log('touchmove', fim)
+    console.log('handleEnd', evt.changedTouches[0])
     /* if(distancia > 10){
     } */
     direcao()
@@ -448,7 +446,6 @@ function touchmove(evt){
 }
 
 function direcao(){
-  console.log('func direcao')
      
     var td_x = fim.pageX - inicio.pageX;
     var td_y = fim.pageY - inicio.pageY;
@@ -456,10 +453,8 @@ function direcao(){
     if( Math.abs( td_x ) > Math.abs( td_y ) ) {
        // é horizontal
        if( td_x < 0 ) {
-          console.log('esquerda')
           if (diretion != "right") diretion = "left";
        } else {
-        console.log('direita')
         if (diretion != "left") diretion = "right";
        }
     } else {
