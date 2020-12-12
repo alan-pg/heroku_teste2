@@ -297,7 +297,7 @@ function fazColisao(){
 
 
 
-const URL_TO_FETCH = 'http://localhost:3000/score';
+const URL_TO_FETCH = 'https://snakegameteste.herokuapp.com/score';
 const id2 = '5fb4321eeedd062f6421ea63'
 
 
