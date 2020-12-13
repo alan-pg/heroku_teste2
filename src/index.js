@@ -15,7 +15,7 @@ nunjucks.configure('src/game',{
   noCache: true,
 
 })
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("src/game"))
 
@@ -25,12 +25,9 @@ app.get('/snakegame', (req, res) => {
   res.render('index.html')
 })
 
-app.get('/ml', (req, res) => {
-  res.send('requisição recebida get')
-})
-
-app.post('/ml', (req, res) => {
-  res.send('requisição recebida post')
+app.post('/teste', (req, res) => {
+  const username = req.body.username
+  res.send(`user name ${username}`)
 })
 
 database().then(() => {
