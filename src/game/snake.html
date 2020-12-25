@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="style.css">
+    <title>Snake game</title>
+</head>
+<body id="body">    
+    <!-- <ul>
+        
+        {% for item in data %}
+          <li>{{item.name}}</li>
+        {% endfor %}
+      </ul> -->
+    <!-- <form action="/teste" method="post">
+        <input type="text" name="username" /> 
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+    </form> -->
+    <div class="game">
+        <div class="snakeTitle">
+            <img src="effects/super snake.png" alt="">
+        </div>
+        <div class="score">
+            <div>
+                <h1 id="p_name"></h1>
+            </div>
+            <div class="show_score">
+                <!-- <h1>Score</h1> -->
+                <img src="effects/SCORE.png" alt="">
+                <h1 id="score">0</h1>
+            </div>       
+            <div class="show_level">
+                <!-- <h1>level</h1> -->
+                <img src="effects/level.png" alt="">
+                <h1 id="level">1</h1>
+            </div>
+        </div>
+        <div class="caixa">
+            <div>
+                <canvas id="snake" width="512" height="512" ></canvas>
+            </div>
+           <!--  <div class="controle">
+                <div class="quadrado1"></div>
+                <div class="2"></div>
+                <div class="3"></div>
+                <div class="4"></div>
+            </div> -->
+
+        </div>
+        <div class="record">
+            <h1 id="0">1º: </h1>
+            <h1 id="1">2º: </h1>
+            <h1 id="2">3º: </h1>
+            <h1 id="3">4º: </h1>
+            <h1 id="4">5º: </h1>         
+        
+        </div>
+        
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="modal_name_player" class="modal">
+    <!-- Modal content -->
+        <div class="modal-content">
+            <!-- <span class="close"></span> -->
+            <p>nome</p>
+            <form id="form_name">
+                <input type="text" id="player_name">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+
+    <div id="modal_new_record" class="modal">
+        <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close" id="close_modal">&times;</span>
+                <h1>NOVO RECORD</h1>
+            </div>
+        </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

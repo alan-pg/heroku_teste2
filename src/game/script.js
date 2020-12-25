@@ -420,7 +420,26 @@ function touchstart(evt){
         pageX: Math.round(evt.changedTouches[0].pageX),
         pageY: Math.round(evt.changedTouches[0].pageY)
       }
-    console.log('handleStart',evt.changedTouches[0] )
+
+      var testePosi = canvas.getBoundingClientRect();      
+      var meioX = testePosi.x + (testePosi.width / 2)
+      var meioY = testePosi.y + (testePosi.height / 2)     
+
+      if(diretion == "up" || diretion == "down"){
+        if(inicio.pageX > meioX && diretion != "left") diretion = "right";
+        if(inicio.pageX < meioX && diretion != "right") diretion = "left";        
+      }else{
+        if(inicio.pageY > meioY && diretion != "up") diretion = "down";
+        if(inicio.pageY < meioY && diretion != "down") diretion = "up";
+      }
+
+
+      /* if (event.keyCode == 37 && diretion != "right") diretion = "left";
+    if (event.keyCode == 38 && diretion != "down") diretion = "up";
+    if (event.keyCode == 39 && diretion != "left") diretion = "right";
+    if (event.keyCode == 40 && diretion != "up") diretion = "down"; */
+    /* console.log('handleStart',evt.changedTouches[0] ) */
+    
 }
 
 function touchend(evt){
@@ -428,10 +447,10 @@ function touchend(evt){
       pageX: Math.round(evt.changedTouches[0].pageX),
       pageY: Math.round(evt.changedTouches[0].pageY)
     }
-    console.log('handleEnd', evt.changedTouches[0])
+    /* console.log('handleEnd', evt.changedTouches[0]) */
     /* if(distancia > 10){
     } */
-    direcao()
+    /* direcao() */
     distancia = 0
 }
 function touchcancel(){
