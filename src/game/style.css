@@ -12,7 +12,7 @@ body{
     height: 95vh;
     width: 95vw; 
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     align-items: center;
     flex-direction: column;
     font-family: supermario2;
@@ -136,12 +136,13 @@ canvas {
 
     
     canvas {
+      max-width: 98%;
       height: 400px;
       width: 400px;
     }
 
     .snakeTitle {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .snakeTitle img{
