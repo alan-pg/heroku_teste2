@@ -14,10 +14,10 @@ body {
     overflow-x: hidden;
     position: absolute; 
     border: solid 5px black;
-    /* display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; */
+    flex-direction: column;
     font-family: supermario2;
     color: black;
     background-color: blueviolet;
@@ -25,16 +25,16 @@ body {
 
 canvas {
     max-width: 98%;
-    height: 400px;
-    width: 400px;
+    height: 420px;
+    width: 420px;
 }
 
 .snakeTitle {  
     /* background-color: aquamarine; */
     display: flex;
     justify-content: center;
-    width: 100%;    
-    margin-bottom: 5px;
+    width: 100%;
+    margin: 10px;
 }
 
 .snakeTitle img {
@@ -43,9 +43,12 @@ canvas {
 }
 
 .game {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+
 }
 
 .score {
@@ -68,7 +71,6 @@ canvas {
     width: 100%;
     /* text-align: center; */
     /* background-color: aqua; */
-
 }
 
 .game .record h1{
@@ -93,15 +95,18 @@ canvas {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
+   
   }
   
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 50% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 30%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
+    
   }
   
   /* The Close Button */
