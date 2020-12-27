@@ -83,7 +83,6 @@ canvas {
 
 
 
-/* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -95,18 +94,38 @@ canvas {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    
-   
   }
+
+  #form_name {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  #btn_ok{
+    border:1px solid #25692A;
+    border-radius:4px;
+    background-color: #90EE90;
+    text-decoration:none;
+    padding:6px 10px;
+  }
+
+  #player_name{
+      border: solid 1px #25692A;
+      border-radius: 10px;
+  }
+
+  
   
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 50% auto; /* 15% from the top and centered */
+    margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
+    border-radius: 15px;
     width: 60%; /* Could be more or less, depending on screen size */
-    
+    height: 70px;
   }
   
   /* The Close Button */
