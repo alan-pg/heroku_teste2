@@ -27,8 +27,8 @@ app.use(express.static("src/game"))
 scoreRoute(app)
 
 app.get('/', async (req, res) => {
-  try {
-    const teste = 'opaaa'
+  /* try {
+    const teste = 'teste'
     const scores = await ScoreModel.findOne()
     console.log('teste ', scores.score)
     return res.render("snake.html", { data: scores.score})
@@ -37,7 +37,8 @@ app.get('/', async (req, res) => {
     
 } catch (error) {
     res.status(400).send({ error: 'Failed to find score' })
-}  
+}  */ 
+return res.render("snake.html")
 })
 
 app.post('/teste', (req, res) => {
@@ -45,6 +46,8 @@ app.post('/teste', (req, res) => {
   res.send(`user name ${username}`)
 })
 
-database().then(() => {
+/* database().then(() => {
   app.listen(port, () => console.log(`API rodando na porta: ${port}`))
-})
+}) */
+
+app.listen(port, () => console.log(`API rodando na porta: ${port}`))
